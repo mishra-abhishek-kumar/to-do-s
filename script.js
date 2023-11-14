@@ -9,18 +9,18 @@ pendingTaskList.addEventListener('click', completeTask);
 pendingTaskList.addEventListener('click', deleteTask);
 completedTaskList.addEventListener('click', deleteTask);
 
-// window.addEventListener('DOMContentLoaded', () => {
-//     axios.get('https://crudcrud.com/api/6b1997144fdc46be90035e163cbcb95c/taskData')
-//         .then((response) => {
-//             for (var i = 0; i < response.data.length; i++) {
-//                 displayTask(response.data[i]);
-//                 // console.log(response.data[i]._id);
-//             }
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         })
-// });
+window.addEventListener('DOMContentLoaded', () => {
+    axios.get('https://crudcrud.com/api/6b1997144fdc46be90035e163cbcb95c/taskData')
+        .then((response) => {
+            for (var i = 0; i < response.data.length; i++) {
+                displayTask(response.data[i]);
+                // console.log(response.data[i]._id);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+});
 
 function displayTask(task) {
     console.log(task._id);
