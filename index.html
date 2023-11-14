@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-container">
+            <div class="header">
+                <h1>Create your to-do's</h1>
+            </div>
+            <div class="form-container">
+                <form class="form" id="form">
+                    <label for="task">Task:</label>
+                    <input type="text" id="task-name">
+    
+                    <label for="description">Description:</label>
+                    <textarea id="task-desc" name="description" rows="4" cols="50"></textarea>
+    
+                    <input type="submit" value="Add Task" id="sub-btn">
+                </form>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="task-remaining">
+                <div class="header">
+                    <h1>Pending Tasks</h1>
+                </div>
+                <div class="remaining-task">
+                    <ul class="remaining-task-list" id="remaining-task-list"></ul>
+                </div>
+            </div>
+
+            <div class="task-completed">
+                <div class="header">
+                    <h1>Completed Task</h1>
+                </div>
+                <div class="completed-task">
+                    <ul class="completed-task-list" id="completed-task-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

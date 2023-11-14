@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;330&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    max-width: 30vw;
+    padding: 10px 15px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: bisque;
+}
+
+.container {
+    display: flex;
+}
+
+.left-container,
+.task-remaining,
+.task-completed {
+    display: flex;
+    flex-direction: column;
+    min-width: 34vw;
+    min-height: 100vh;
+    background-color: rgb(247, 121, 121);
+    align-items: center;
+    padding-top: 120px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    min-width: 20vw;
+    gap: 10px;
+    color: white;
+    font-size: large;
+}
+
+input[type=text],
+textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgb(150, 21, 12);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(248, 75, 12);
+}
+
+input[type=submit]:active {
+    background-color: rgb(150, 21, 12);
+}
+
+.right-container {
+    display: flex;
+}
+
+.task-remaining {
+    background-color: rgb(248, 139, 139);
+    min-width: 33vw;
+}
+
+.remaining-task {
+    max-height: 70vh;
+    max-width: 30vw;
+    overflow: auto;
+}
+
+.task-completed {
+    background-color: rgb(245, 151, 151);
+    min-width: 33vw;
+}   
+
+
+/* Edit & Delete buttons */
+.del {
+    padding: 2px 8px;
+    font-weight: bold;
+    background-color: rgb(255, 134, 134);
+    border: 2px solid red;
+    border-radius: 5px;
+    width: fit-content;
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+.del:hover {
+    background-color: red;
+    box-shadow: 1px 1px rgb(197, 0, 0);
+    cursor: pointer;
+    color: white;
+}
+
+.del:active {
+    background-color: rgb(255, 134, 134);
+    box-shadow: 1px 1px rgb(197, 0, 0);
+    cursor: pointer;
+    color: white;
+}
+
+.done {
+    padding: 2px 8px;
+    font-weight: bold;
+    background-color: rgb(161, 248, 161);
+    border: 2px solid green;
+    border-radius: 5px;
+    width: fit-content;
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+.done:hover {
+    background-color: green;
+    box-shadow: 2px 2px rgb(0, 82, 0);
+    cursor: pointer;
+}
+
+.done:hover {
+    background-color: rgb(161, 248, 161);
+    box-shadow: 2px 2px rgb(0, 82, 0);
+    cursor: pointer;
+}
+
+.float-right {
+    float: right !important
+}
+
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(248, 65, 65);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b33000;
+}
