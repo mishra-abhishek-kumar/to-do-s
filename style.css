@@ -31,7 +31,7 @@ ul li {
     flex-direction: column;
     min-width: 34vw;
     min-height: 100vh;
-    background-color: rgb(247, 121, 121);
+    background-color: rgb(255, 255, 255);
     align-items: center;
     padding-top: 120px;
     padding-left: 10px;
@@ -44,8 +44,9 @@ ul li {
     flex-direction: column;
     min-width: 20vw;
     gap: 10px;
-    color: white;
+    color: black;
     font-size: large;
+    font-weight: bold;
 }
 
 input[type=text],
@@ -80,7 +81,7 @@ input[type=submit]:active {
 }
 
 .task-remaining {
-    background-color: rgb(248, 139, 139);
+    background-color: rgb(245, 151, 151);
     min-width: 33vw;
 }
 
@@ -91,7 +92,7 @@ input[type=submit]:active {
 }
 
 .task-completed {
-    background-color: rgb(245, 151, 151);
+    background-color: rgb(248, 139, 139);
     min-width: 33vw;
 }   
 
