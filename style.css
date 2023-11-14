@@ -166,7 +166,7 @@ input[type=submit]:active {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: rgb(248, 65, 65);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 /* Handle on hover */

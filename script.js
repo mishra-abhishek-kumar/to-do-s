@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
         .then((response) => {
             for (var i = 0; i < response.data.length; i++) {
                 displayTask(response.data[i]);
-                // console.log(response.data[i]._id);
             }
         })
         .catch((err) => {
