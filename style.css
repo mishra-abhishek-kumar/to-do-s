@@ -111,14 +111,7 @@ input[type=submit]:active {
 
 .del:hover {
     background-color: red;
-    box-shadow: 1px 1px rgb(197, 0, 0);
-    cursor: pointer;
-    color: white;
-}
-
-.del:active {
-    background-color: rgb(255, 134, 134);
-    box-shadow: 1px 1px rgb(197, 0, 0);
+    box-shadow: 2px 2px rgb(255, 134, 134);
     cursor: pointer;
     color: white;
 }
@@ -136,14 +129,9 @@ input[type=submit]:active {
 
 .done:hover {
     background-color: green;
-    box-shadow: 2px 2px rgb(0, 82, 0);
+    box-shadow: 2px 2px rgb(161, 248, 161);;
     cursor: pointer;
-}
-
-.done:hover {
-    background-color: rgb(161, 248, 161);
-    box-shadow: 2px 2px rgb(0, 82, 0);
-    cursor: pointer;
+    color: white;
 }
 
 .float-right {

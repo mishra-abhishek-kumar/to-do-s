@@ -10,7 +10,7 @@ pendingTaskList.addEventListener('click', deleteTask);
 completedTaskList.addEventListener('click', deleteTask);
 
 window.addEventListener('DOMContentLoaded', () => {
-    axios.get('https://crudcrud.com/api/6b1997144fdc46be90035e163cbcb95c/taskData')
+    axios.get('https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData')
         .then((response) => {
             for (var i = 0; i < response.data.length; i++) {
                 displayTask(response.data[i]);
@@ -54,7 +54,7 @@ function displayTask(task) {
     }
 }
 
-function addTask(e) {
+async function addTask(e) {
     e.preventDefault();
 
     //creating elements to be added
@@ -86,20 +86,28 @@ function addTask(e) {
         isCompleted: false
     }
 
-    axios.post('https://crudcrud.com/api/6b1997144fdc46be90035e163cbcb95c/taskData', taskData)
-        .then((response) => {
-            li.appendChild(document.createTextNode(`: ${response.data._id}`));
-            console.log("New Task is created with ID: ", response.data._id);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    try {
+        const response = await axios.post('https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData', taskData);
+        li.appendChild(document.createTextNode(`: ${response.data._id}`));
+        console.log("New Task is created with ID: ", response.data._id);
+    } catch (error) {
+        console.log(error);
+    }
 
-    taskName.value = '';
-    taskDescription.value = '';
+    // axios.post('https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData', taskData)
+    //     .then((response) => {
+    //         li.appendChild(document.createTextNode(`: ${response.data._id}`));
+    //         console.log("New Task is created with ID: ", response.data._id);
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     });
+
+    // taskName.value = '';
+    // taskDescription.value = '';
 }
 
-function completeTask(e) {
+async function completeTask(e) {
     if (e.target.classList.contains('done')) {
         // console.log(e.target.parentElement.innerText);
         let splitString = e.target.parentElement.innerText.split(':');
@@ -120,33 +128,47 @@ function completeTask(e) {
         completedTaskList.appendChild(li);
         pendingTaskList.removeChild(e.target.parentElement);
 
-        axios.put(`https://crudcrud.com/api/6b1997144fdc46be90035e163cbcb95c/taskData/${taskID}`, { "task": `${taskName}`, "description": `${taskDescription}`, "isCompleted": true })
-            .then((response) => {
-                console.log("Task completed with ID: ", taskID);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        try {
+            await axios.put(`https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData/${taskID}`, { "task": `${taskName}`, "description": `${taskDescription}`, "isCompleted": true });
+            console.log("Task completed with ID: ", taskID);
+        } catch (error) {
+            console.log(error);
+        }
+
+        // axios.put(`https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData/${taskID}`, { "task": `${taskName}`, "description": `${taskDescription}`, "isCompleted": true })
+        //     .then((response) => {
+        //         console.log("Task completed with ID: ", taskID);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     })
     }
 }
 
-function deleteTask(e) {
+async function deleteTask(e) {
     if (e.target.classList.contains('del')) {
         let splitString = e.target.parentElement.innerText.split(':');
         let taskID = splitString[2].trim();
 
-        if(e.target.parentElement.parentElement.classList.contains('remaining-task-list')) {
+        if (e.target.parentElement.parentElement.classList.contains('remaining-task-list')) {
             pendingTaskList.removeChild(e.target.parentElement);
-        } else if(e.target.parentElement.parentElement.classList.contains('completed-task-list')) {
+        } else if (e.target.parentElement.parentElement.classList.contains('completed-task-list')) {
             completedTaskList.removeChild(e.target.parentElement);
         }
-        
-        axios.delete(`https://crudcrud.com/api/6b1997144fdc46be90035e163cbcb95c/taskData/${taskID}`)
-            .then((response) => {
-                console.log("Task deleted with ID: ", taskID);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+
+        try {
+            await axios.delete(`https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData/${taskID}`);
+            console.log("Task deleted with ID: ", taskID);
+        } catch (error) {
+            console.log(error);
+        }
+
+        // axios.delete(`https://crudcrud.com/api/d5f9c56e198b40daa30c65228b51986f/taskData/${taskID}`)
+        //     .then((response) => {
+        //         console.log("Task deleted with ID: ", taskID);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     })
     }
 }
